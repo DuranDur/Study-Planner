@@ -1,0 +1,198 @@
+:root{
+  --paper: #EDEEE2;
+  --paper-raised: #F7F7EF;
+  --rule: #C4CCB9;
+  --rule-strong: #9AA68E;
+  --ink: #1F2A3D;
+  --ink-soft: #4A5560;
+  --red: #A8351F;
+  --amber: #B8791F;
+  --green: #3F6B4A;
+  --slate: #4A5C6B;
+}
+*{ box-sizing: border-box; }
+
+html, body{
+  margin:0; padding:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:'Inter', sans-serif;
+  font-size:16px;
+  line-height:1.5;
+}
+/* body{
+} */
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 28px 96px;
+}
+
+header{
+  padding-bottom: 22px;
+  margin-bottom: 34px;
+}
+h1{
+  font-family:'Source Serif 4', serif;
+  font-weight:700;
+  font-size:2.35rem;
+  margin:0 0 8px;
+  letter-spacing:-0.01em;
+}
+header p{
+  margin:0;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+h2{
+  font-family:'Source Serif 4', serif;
+  font-weight:600;
+  font-size:1.3rem;
+  margin:0 0 4px;
+}
+.section-note{
+  color: var(--ink-soft);
+  font-size:0.92rem;
+  margin:0 0 16px;
+  max-width:60ch;
+}
+section{ margin-bottom:44px; }
+
+.cols{
+  display:grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap:36px;
+}
+@media (max-width:720px){
+  .cols{ grid-template-columns:1fr; }
+}
+
+/* --- Form fields --- */
+label{
+  display:block;
+  font-size:0.82rem;
+  color: var(--ink-soft);
+  margin-bottom:4px;
+}
+input[type=text], input[type=date], select{
+  width:100%;
+  padding:8px 9px;
+  border:none;
+  box-shadow:none;
+  outline:none;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family:'Inter', sans-serif;
+  font-size:0.95rem;
+  border-radius:2px;
+}
+select{
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
+                     linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+  background-position: calc(100% - 16px) center, calc(100% - 11px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+input:focus, select:focus, button:focus{
+  outline:2px solid var(--slate);
+  outline-offset:1px;
+}
+.field{ margin-bottom:12px; }
+.row2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+button.primary{
+  margin-top:6px;
+  width:100%;
+  padding:10px;
+  background: var(--ink);
+  color: var(--paper-raised);
+  border:none;
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:0.95rem;
+  cursor:pointer;
+  border-radius:2px;
+}
+button.primary:hover{ background:#152030; }
+
+/* --- Course list --- */
+.course-list{ list-style:none; margin:14px 0 0; padding:0; }
+.course-list li{
+  display:flex; align-items:center; gap:8px;
+  padding:6px 0;
+  font-size:0.92rem;
+}
+.course-list li button{
+  margin-left:auto;
+  background:none; border:none;
+  color: var(--ink-soft);
+  cursor:pointer;
+  font-size:0.85rem;
+}
+.dot{
+  width:9px; height:9px; border-radius:50%;
+  display:inline-block; flex-shrink:0;
+  background: var(--slate);
+}
+.empty{
+  color: var(--ink-soft);
+  font-size:0.9rem;
+  font-style:italic;
+  padding:10px 0;
+  list-style:none;
+}
+
+/* --- Priority list rows (backend renders these) --- */
+.hint{
+  color: var(--ink-soft);
+  font-size:0.82rem;
+  margin:0 0 8px;
+}
+.plan-list{ list-style:none; margin:0; padding:0; }
+.plan-row{
+  display:grid;
+  grid-template-columns: 34px 1fr auto auto;
+  align-items:center;
+  gap:14px;
+  padding:16px 0;
+}
+.plan-row .rank{
+  font-family:'IBM Plex Mono', monospace;
+  color: var(--ink-soft);
+  font-size:0.95rem;
+}
+.plan-row .title{ font-weight:500; }
+.plan-row .course-tag{
+  font-size:0.8rem;
+  color: var(--ink-soft);
+  margin-top:2px;
+}
+.plan-row .course-tag .dot{
+  width:7px; height:7px; margin-right:5px;
+}
+.badge{
+  font-size:0.78rem;
+  padding:3px 8px;
+  border-radius:2px;
+  white-space:nowrap;
+  font-family:'Inter', sans-serif;
+}
+.badge.overdue{ background:rgba(168,53,31,0.13); color: var(--red); }
+.badge.soon{ background:rgba(184,121,31,0.15); color: var(--amber); }
+.badge.later{ background:rgba(63,107,74,0.13); color: var(--green); }
+.plan-row .score{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.9rem;
+  color: var(--ink-soft);
+  text-align:right;
+}
+.del-btn{
+  background:none; border:none; color: var(--ink-soft);
+  cursor:pointer; font-size:0.8rem;
+  padding:0; margin-left:10px;
+}

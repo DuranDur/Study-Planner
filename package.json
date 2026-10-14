@@ -1,0 +1,26 @@
+{
+  "name": "typescript-project",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node JS/server.js",
+    "dev": "tsx watch TS/server.ts",
+    "nodemon": "nodemon --watch TS --ext ts --exec \"tsx TS/server.ts\""
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "i": "^0.3.7",
+    "typescript": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.1",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.23.13"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

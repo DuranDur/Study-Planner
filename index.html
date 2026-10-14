@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/CSS/index.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Study ledger</h1>
+    <p>Log your courses and what's due, then see what to study
+    first — ranked by deadline, importance, and exam weight.</p>
+  </header>
+
+  <section class="cols">
+    <div>
+      <h2>Courses</h2>
+      <p class="section-note">Add each course you're tracking.</p>
+      <div class="field">
+        <label for="course-name">Course name</label>
+        <input type="text" id="course-name" name="course-name" placeholder="e.g. Statistics">
+      </div>
+      <button type="button" class="primary" id="add-course-btn">Add course</button>
+      <!-- Backend should append <li> items here, e.g.
+           <li><span class="dot"></span><span>Name</span><button class="remove-course-btn">remove</button></li> -->
+      <ul class="course-list" id="course-list">
+        <li class="empty">No courses yet.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Add a task</h2>
+      <p class="section-note">An assignment or exam tied to a course.</p>
+      <div class="field">
+        <label for="task-title">Task</label>
+        <input type="text" id="task-title" name="task-title" placeholder="e.g. Chapter 4 problem set">
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="task-course">Course</label>
+          <!-- Backend should populate <option> values from the course list -->
+          <select id="task-course" name="task-course">
+            <option value="" disabled selected>Add a course first</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="task-type">Type</label>
+          <select id="task-type" name="task-type">
+            <option value="assignment" selected>Assignment</option>
+            <option value="exam">Exam</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="task-due">Due date</label>
+          <input type="date" id="task-due" name="task-due">
+        </div>
+        <div class="field">
+          <label for="task-importance">Importance (1–5)</label>
+          <select id="task-importance" name="task-importance">
+            <option value="1">1 – low</option>
+            <option value="2">2</option>
+            <option value="3" selected>3 – medium</option>
+            <option value="4">4</option>
+            <option value="5">5 – high</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="primary" id="add-task-btn">Add task</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Study priority list</h2>
+    <p class="section-note" id="plan-empty-note">Add a course and a task to see your ranking.</p>
+    <footer class="hint">Ranked by how soon each item is due, the
+    importance you gave it, and a small boost for exams over
+    assignments.</footer>
+    <!-- Backend should render ranked <li class="plan-row"> items here, e.g.
+         <li class="plan-row">
+           <span class="rank">01</span>
+           <span>
+             <div class="title">Task name · exam</div>
+             <div class="course-tag"><span class="dot"></span>Course name</div>
+           </span>
+           <span class="badge soon">due in 3d</span>
+           <span class="score">score 14.5</span>
+           <button class="del-btn">remove</button>
+         </li> -->
+    <ul class="plan-list" id="plan-list"></ul>
+  </section>
+
+</div>
+</body>
+</html>
