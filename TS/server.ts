@@ -1,13 +1,12 @@
 import express, { Request, Response, NextFunction } from "express";
 import path from "path";
-import routes from "./routes";
-import { loadData } from "./persistence";
+import routes from "./route";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public"))); // ASSUMED: frontend in /public
+app.use(express.static(path.join(__dirname, "..")));
 app.use("/api", routes);
 
 // Unknown API route
@@ -20,8 +19,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err);
   res.status(500).json({ error: "Internal server error" });
 });
-
-loadData();
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
